@@ -1,5 +1,4 @@
 <script setup>
-document.title = "Sobre nosaltres"
 </script>
 
 <template>
@@ -12,10 +11,10 @@ document.title = "Sobre nosaltres"
 
       <div class="contenidor-imatges-sobrenosaltres">
         <div class="image-contenidor-sobrenosaltres">
-          <img src="/imatges/sobre-nosaltres.png" alt="Imatge">
+          <img src="/imatges/imatge-portada.png" alt="Imatge">
         </div>
         <div class="image-contenidor-sobrenosaltres">
-          <img src="/imatges/sobre-nosaltres1.png" alt="Imatge">
+          <img src="/imatges/imatge-portada.png" alt="Imatge">
         </div>
       </div>
 
@@ -32,10 +31,10 @@ document.title = "Sobre nosaltres"
 
       <div class="contenidor-imatges-sobrenosaltres">
         <div class="image-contenidor-sobrenosaltres">
-          <img src="/imatges/sobre-nosaltres2.jpg" alt="Productors locals">
+          <img src="/imatges/imatge-portada.png" alt="Productors locals">
         </div>
         <div class="image-contenidor-sobrenosaltres">
-          <img src="/imatges/sobre-nosaltres3.jpg" alt="Ingredients de qualitat">
+          <img src="/imatges/imatge-portada.png" alt="Ingredients de qualitat">
         </div>
       </div>
 

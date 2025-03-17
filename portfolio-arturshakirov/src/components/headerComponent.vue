@@ -5,7 +5,7 @@
   <header>
     <div id="contenidorHeader">
       <router-link to="/">
-        <img src="/favicon.ico" alt="Logo" id="logo" />
+        <img src="/imatges/SVG/favicon.svg" alt="Logo" id="logo" />
       </router-link>
 
       <nav id="nav">
@@ -14,9 +14,10 @@
           <div class="menuTancar" ref="menuTancar" @click="tancarMenu">
             <img class="iconaMenu" src="/imatges/SVG/x-solid.svg" alt="Icona tancar menú">
           </div>
-          <li><router-link to="/teves-comandes">Les teves comandes</router-link></li>
-          <li><router-link to="/sobre-nosaltres">Sobre nosaltres</router-link></li>
-          <li id="botoDemanar"><router-link to="/menus">Demanar!</router-link></li>
+          <li><router-link to="/teves-comandes">Habilidades</router-link></li>
+          <li><router-link to="/sobre-nosaltres">Proyectos</router-link></li>
+          <li><router-link to="/sobre-nosaltres">Experiencia</router-link></li>
+          <li id="botoDemanar"><router-link to="/menus">Contactame</router-link></li>
           <li><router-link to="/perfil"><img id="imatgePerfil" src="/imatges/SVG/user-solid.svg"></router-link></li>
         </ul>
 
@@ -37,13 +38,17 @@ header {
   display: flex;
   justify-content: center;
   padding: 20px;
-  background-color: transparent;
+  background-color: rgba(251, 251, 251, 0.7);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
 #contenidorHeader {
   display: flex;
-  width: 70%;
+  max-width: 1000px;
+  width: 65%;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
@@ -131,9 +136,14 @@ nav>ul>.menuTancar {
 
 /*MEDIA QUERY PEL HEADER I LA BARRA DE NAVEGACIÓ ALS 900px*/
 /*OCULTAR BARRA DE NAVEGACIÓ I MOSTRAR MENÚ HAMBURGUESA*/
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   #contenidorHeader {
     width: 85%;
+  }
+
+  header {
+    padding: 15px 0;
+    margin: 0;
   }
 
   .llistaNav.visible {

@@ -5,7 +5,6 @@
 <template>
   <footer>
     <div id="contenidorFooter">
-      <div>&copy; Shakarcia</div>
       <div id="contingutFooter">
         <div id="apartats">
           <div>
@@ -45,6 +44,7 @@
           </div>
         </div>
       </div>
+      <div class="copyrightText">&copy; Artur Shakirov<br>Casi todos los derechos reservados.</div>
     </div>
   </footer>
 </template>
@@ -53,8 +53,10 @@
 footer {
   display: flex;
   justify-content: center;
-  background-color: rgb(24, 24, 24);
-  padding: 25px 0;
+  background-image: url(/imatges/background-footer.webp);
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding: 35px 0;
   z-index: 0;
   bottom: 0;
   width: 100%;
@@ -62,7 +64,9 @@ footer {
 }
 
 #contenidorFooter {
-  width: 70%;
+  width: 65%;
+  max-width: 1000px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -71,6 +75,10 @@ footer {
 #contenidorFooter *,  #contenidorFooter i {
   color: #dfdfdf;
   font-size: 13px;
+}
+
+#contenidorFooter .copyrightText {
+  color: #7f7f7f;
 }
 
 #contingutFooter {

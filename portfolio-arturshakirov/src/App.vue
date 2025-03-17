@@ -2,17 +2,34 @@
 //Imports
 import footerComponent from './components/footerComponent.vue';
 import headerComponent from './components/headerComponent.vue';
+import { onMounted, onUnmounted } from 'vue';
+/*
+onMounted(() => {
+	const cursorShadow = document.getElementById('cursor-shadow');
+
+	const updateCursorPosition = (e) => {
+		cursorShadow.style.transform = `translate(${e.clientX - 10}px, ${e.clientY}px)`;
+	};
+
+	document.addEventListener('mousemove', updateCursorPosition);
+
+	onUnmounted(() => {
+		document.removeEventListener('mousemove', updateCursorPosition);
+	});
+});*/
 </script>
 
 <template>
+	<div id="cursor-shadow"></div>
 	<!-- HEADER -->
 	<headerComponent></headerComponent>
 
 	<!-- CONTINGUT -->
 	<main>
-		<Toast/>
+		<Toast />
 		<div id="contingut">
-			<RouterView @missatge-success="missatgeSuccess" @missatge-error="missatgeError" @missatge-info="missatgeInfo" @login-correcte="actualitzarDades" @tancarSessio="tancarSessio" :jwt="jwt"></RouterView>
+			<RouterView @missatge-success="missatgeSuccess" @missatge-error="missatgeError"
+				@missatge-info="missatgeInfo" @login-correcte="actualitzarDades" @tancarSessio="tancarSessio"></RouterView>
 		</div>
 	</main>
 
@@ -39,10 +56,11 @@ import headerComponent from './components/headerComponent.vue';
 	--border-taula: rgb(131, 131, 131);
 	--box-shadow: rgb(206, 206, 206);
 	--font-primaria: "Inter Tight", sans-serif;
-	--font-secundaria: "Inter", sans-serif;
-	--background:rgb(251, 251, 251);
-	--color-text: #1f1f1f;
-	--color-text-inputs: rgba(18, 18, 18, 0.8);
+	--font-secundaria: "Inter Tight", sans-serif;
+	--background: rgb(251, 251, 251);
+	--text-primary-color: #1f1f1f;
+	--text-secondary-color: #5e5e5e;
+	--text-primary-color-inputs: rgba(18, 18, 18, 0.8);
 	--hoverTaules: rgba(0, 0, 0, 0.035);
 	--seleccionat: rgba(0, 0, 0, 0.1);
 	--color-icones: var(--grocFosc);
@@ -73,8 +91,10 @@ body {
 	flex-direction: column;
 	font-family: var(--font-secundaria);
 	background-color: var(--background);
-	color: var(--color-text);
-	font-size: 15px;
+	color: var(--text-secondary-color);
+	font-size: 16.5px;
+	line-height: 1.35;
+	font-weight: 500;
 	min-height: 100vh;
 }
 
@@ -87,9 +107,21 @@ main {
 
 #contingut {
 	margin: 50px 0;
-	margin-bottom: 70px;
-	width: 80%;
+	width: 65%;
+	max-width: 1000px;
 	height: 100%;
+}
+
+#cursor-shadow {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.1);
+	background: var(--text-primary-color);
+	backdrop-filter: contrast(1);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: -1;
 }
 
 .p-toast {
@@ -97,7 +129,7 @@ main {
 }
 
 a {
-	color: var(--color-text);
+	color: var(--text-primary-color);
 	text-decoration: none;
 	width: fit-content;
 }
@@ -112,8 +144,11 @@ h2,
 h3,
 h4,
 a {
-	color: var(--color-text);
+	color: var(--text-primary-color);
 	font-family: var(--font-primaria);
+	line-height: 1.1em;
+	letter-spacing: -0.015em;
+	margin-block-end: 0.3em;
 }
 
 h1 {
@@ -165,7 +200,7 @@ select {
 	margin-bottom: 15px;
 	border: 1px solid #b6b6b6;
 	background-color: var(--background);
-	color: var(--color-text-inputs);
+	color: var(--text-primary-color-inputs);
 	font-family: var(--montserrat);
 }
 
@@ -178,7 +213,7 @@ input[type="submit"] {
 	padding: 10px;
 	margin-top: 15px;
 	font-weight: 600;
-	color: var(--color-text);
+	color: var(--text-primary-color);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -213,102 +248,107 @@ select {
 	border-radius: 5px !important;
 }
 
-hr{
-  max-width: 300px;
-  margin: 5px 0;
-  border-top: 1px solid var(--gris);
+hr {
+	max-width: 300px;
+	margin: 5px 0;
+	border-top: 1px solid var(--gris);
 }
 
 .iconaCarregantDades {
-  border: 6px solid var(--blanc);
-  border-top: 6px solid var(--verd);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  animation: rotar 1.5s linear infinite;
+	border: 6px solid var(--blanc);
+	border-top: 6px solid var(--verd);
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	animation: rotar 1.5s linear infinite;
 }
 
 @keyframes rotar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 
 .accionsDataTable {
-    text-align: right;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
+	text-align: right;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 10px;
 }
 
 /* Íconos */
 .icona {
-    background-color: var(--grisFosc);
-    padding: 10px;
-    border-radius: 3em;
-    color: var(--negre);
-    margin: 0 5px;
-    cursor: pointer;
-    transition: 0.2s;
+	background-color: var(--grisFosc);
+	padding: 10px;
+	border-radius: 3em;
+	color: var(--negre);
+	margin: 0 5px;
+	cursor: pointer;
+	transition: 0.2s;
 }
 
 .icona:hover {
-    filter: contrast(0.7);
+	filter: contrast(0.7);
 }
 
 /* DataTable */
 .p-datatable {
 	margin-top: 30px;
-    border-radius: 0.5em;
-    overflow: hidden;
+	border-radius: 0.5em;
+	overflow: hidden;
 }
 
-.p-datatable > tr:hover {
-    background-color: rosybrown;
+.p-datatable>tr:hover {
+	background-color: rosybrown;
 }
 
-.p-datatable-thead > tr {
-    border: 1px solid black;
+.p-datatable-thead>tr {
+	border: 1px solid black;
 }
 
-.p-datatable-thead > tr > th{
-    /*background-color: rgb(240, 240, 240);
+.p-datatable-thead>tr>th {
+	/*background-color: rgb(240, 240, 240);
     color: var(--blanc);*/
-    min-width: fit-content;
-    padding: 15px 20px;
+	min-width: fit-content;
+	padding: 15px 20px;
 }
 
 /* Precios */
-.preu > *::after {
-    content: "€";
+.preu>*::after {
+	content: "€";
 }
 
 /* Capitalize */
 .capitalize {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .contenidor-botons {
-    display: flex;
-    gap: 8px;
+	display: flex;
+	gap: 8px;
 }
 
 .pi-trash {
-    color: #ff3459;
-    background-color: #ffccd5;
-    cursor: pointer;
+	color: #ff3459;
+	background-color: #ffccd5;
+	cursor: pointer;
 }
 
 .pi-pencil {
-    color: var(--verdFosc);
-    background-color: #b4ecb7;
-    cursor: pointer;
+	color: var(--verdFosc);
+	background-color: #b4ecb7;
+	cursor: pointer;
 }
 
 .contingut-dialog {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 </style>
