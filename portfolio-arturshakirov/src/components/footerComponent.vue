@@ -39,8 +39,8 @@
           </div>
 
           <div id="dadesEmpresa">
-            <a href="mailto:shakarcia@gmail.com">shakarcia@gmail.com</a>
-            <p>+34 972878780</p>
+            <a href="mailto:arturiussicarius@gmail.com">arturiussicarius@gmail.com</a>
+            <p>+34 676881557</p>
           </div>
         </div>
       </div>
@@ -73,12 +73,13 @@ footer {
 }
 
 #contenidorFooter *,  #contenidorFooter i {
-  color: #dfdfdf;
+  color: var(--text-third-color);
+  border-color: var(--text-third-color);
   font-size: 13px;
 }
 
 #contenidorFooter .copyrightText {
-  color: #7f7f7f;
+  color: #8d8d8d;
 }
 
 #contingutFooter {
@@ -131,10 +132,6 @@ h4 {
 
 #contacte #dadesEmpresa *{
   margin-top: 3px;
-}
-
-hr {
-  border-color: #cdcdcd;
 }
 
 a {

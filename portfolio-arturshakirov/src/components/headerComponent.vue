@@ -1,12 +1,17 @@
 <script setup>
+const emit = defineEmits('scrollContenedor');
+
+function scrollAContenedor(id) {
+  emit('scrollContenedor', id);
+}
 </script>
 
 <template>
   <header>
     <div id="contenidorHeader">
-      <router-link to="/">
+      <a href="#app">
         <img src="/imatges/SVG/favicon.svg" alt="Logo" id="logo" />
-      </router-link>
+      </a>
 
       <nav id="nav">
         <!-- HEADER PER USUARI LOGAT -->
@@ -14,11 +19,10 @@
           <div class="menuTancar" ref="menuTancar" @click="tancarMenu">
             <img class="iconaMenu" src="/imatges/SVG/x-solid.svg" alt="Icona tancar menú">
           </div>
-          <li><router-link to="/teves-comandes">Habilidades</router-link></li>
-          <li><router-link to="/sobre-nosaltres">Proyectos</router-link></li>
-          <li><router-link to="/sobre-nosaltres">Experiencia</router-link></li>
-          <li id="botoDemanar"><router-link to="/menus">Contactame</router-link></li>
-          <li><router-link to="/perfil"><img id="imatgePerfil" src="/imatges/SVG/user-solid.svg"></router-link></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li id="botoDemanar"><a href="#contacto">Contactame</a></li>
         </ul>
 
         <div class="menuObrir" ref="menuObrir" @click="obrirMenu">
@@ -37,8 +41,8 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px;
-  background-color: rgba(251, 251, 251, 0.7);
+  padding: 15px 0;
+  background-color: rgba(251, 251, 251, 0.8);
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
@@ -82,7 +86,7 @@ nav a {
   background: transparent;
   padding: 5px 12px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
   border: none;
   cursor: pointer;
@@ -90,7 +94,7 @@ nav a {
 }
 
 nav>ul>li>a:hover {
-  color: var(--vermellFosc);
+  color: var(--hover);
 }
 
 nav>.menuObrir,
@@ -110,22 +114,22 @@ nav>ul>.menuTancar {
 
 #botoDemanar,
 #botoRegistre {
-  background-color: transparent;
-  border: 3px solid var(--vermellFosc);
+  background-color: var(--negre);
+  border: 2px solid var(--text-primary-color);
   font-size: 14px;
-  padding: 6px 8px;
-  border-radius: 3em;
+  padding: 3.5px;
+  border-radius: 3.5em;
   transition: 0.2s ease-in-out;
 }
 
 #botoDemanar *,
 #botoRegistre * {
-  color: var(--vermellFosc);
+  color: var(--blanc);
 }
 
 #botoDemanar:hover,
 #botoRegistre:hover {
-  background-color: var(--vermellFosc);
+  opacity: 0.7;
   cursor: pointer;
 }
 
@@ -134,13 +138,15 @@ nav>ul>.menuTancar {
   color: var(--blanc);
 }
 
-/*MEDIA QUERY PEL HEADER I LA BARRA DE NAVEGACIÓ ALS 900px*/
-/*OCULTAR BARRA DE NAVEGACIÓ I MOSTRAR MENÚ HAMBURGUESA*/
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   #contenidorHeader {
     width: 85%;
   }
+}
 
+/*MEDIA QUERY PEL HEADER I LA BARRA DE NAVEGACIÓ ALS 900px*/
+/*OCULTAR BARRA DE NAVEGACIÓ I MOSTRAR MENÚ HAMBURGUESA*/
+@media (max-width: 675px) {
   header {
     padding: 15px 0;
     margin: 0;

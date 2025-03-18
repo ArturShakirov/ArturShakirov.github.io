@@ -46,30 +46,116 @@ onMounted(() => {
 
 <template>
   <div id="contenidorPortada">
-    <div id="contingutPortada">
+    <div id="portada">
       <h2 class="changingText">{{ currentText }}</h2>
       <h1>Hey, soy <span id="nameAuthor">Artur Shakirov</span>
         <hr>
       </h1>
-      <p>Al acabar la ESO entre al ciclo de grado medio de informatica porque me quedaba cerca de casa y no porque
-        especialmente me gustase. Aunque al principio tuvimos algunas batallas, después de poco tiempo lo tuve claro, me
-        queria dedicar a la tecnologia y especificamente a la programación web.
-        <br><br>Eso de tener la habilidad de crear lo que quisiese y que fuera tan accesible como para que la gente que
-        me rodea lo puediese ver con solo 3 toques me parecia impresionante, como un pintor con sus obras.
-        <br><br>Al final del ciclo me gradué con matrícula de honor (quien lo diria &#128517;). <br>A partir de allí
-        pude estudiar el ciclo de grado superior de Desarrollo de Aplicaciones Web, en el que estoy actualmente.
-      </p>
 
-      <RouterLink to="/menus"><button>Demanar</button></RouterLink>
+      <div id="lista-btn">
+        <button id="btn-contactame">
+          <i class="pi pi-envelope icona"></i>
+          Contactame
+        </button>
+
+        <button id="btn-curriculum">
+          <i class="pi pi-file-pdf icona"></i>
+          Currículum V.
+        </button>
+      </div>
     </div>
 
     <div id="contenidorImatgePortada">
-      <img id="imatgePortada" src="/imatges/SVG/imatge-portada.svg" alt="Imatge portada">
     </div>
   </div>
 
   <sobreNosaltresView id="sobreNosaltresView" />
+
+  <div id="habilidades">
+    <h2>Habilidades</h2>
+  </div>
 </template>
+
+<style scoped>
+#lista-btn {
+  display: flex;
+  gap: 10px;
+}
+
+button { 
+  font-family: var(--font-primaria);
+}
+
+.changingText {
+  display: inline-block;
+  font-size: clamp(20px, 2vw + 1vh, 25px);
+  font-weight: 500;
+  color: var(--text-secondary-color);
+  margin-block-end: 1rem;
+}
+
+.changingText::after {
+  content: '|';
+  font-weight: 100;
+  color: var(--text-secondary-color);
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+h1 {
+  font-weight: 500;
+  font-size: clamp(50px, 4vw + 3.5vh, 85px);
+}
+
+#contenidorPortada {
+  width: 100%;
+  height: 100vh;
+  min-height: min-content;
+  display: flex;
+  gap: 25px;
+}
+
+#contingutPortada {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100vh;
+}
+
+#nameAuthor {
+  font-weight: 700;
+}
+
+hr {
+  width: 50px;
+  margin: 1.5rem 0;
+  margin-top: none;
+  border-bottom: 0.5px solid var(--text-secondary-color);
+}
+
+#contenidorImatgePortada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: clamp(200px, 20vw, 400px); /* Tamaño mínimo, relativo y máximo */
+  min-height: clamp(200px, 20vw, 400px); /* Tamaño mínimo, relativo y máximo */
+  max-height: 80vh;
+  background-image: url('/imatges/SVG/imatge-portada.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#imatgePortada {
+  width: 100%;
+  max-width: max-content;
+}
+</style>
 
 <style>
 @media (max-width: 600px) {
@@ -105,71 +191,6 @@ onMounted(() => {
   h1 {
     font-size: 3.5em;
   }
-}
-</style>
-
-<style scoped>
-.changingText {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.changingText::after {
-  content: '|';
-  font-weight: 100;
-  color: var(--text-secondary-color);
-  animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-h1 {
-  font-weight: 500;
-  font-size: 5em;
-}
-
-h2 {
-  color: var(--text-secondary-color);
-  margin-block-end: 1rem;
-}
-
-#contenidorPortada {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-#contingutPortada {
-  display: flex;
-  flex-direction: column;
-}
-
-#nameAuthor {
-  font-weight: 700;
-}
-
-hr {
-  width: 50px;
-  margin: 1.5rem 0;
-  margin-top: none;
-  border-bottom: 0.5px solid var(--text-secondary-color);
-}
-
-#contenidorImatgePortada {
-  min-width: 35%;
-}
-
-#imatgePortada {
-  width: 100%;
-  max-height: 450px;
-  max-width: max-content;
 }
 
 @media (max-width: 1000px) {

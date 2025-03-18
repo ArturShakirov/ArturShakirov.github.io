@@ -4,7 +4,7 @@
 <template>
   <section class="sobre-nosaltres">
     <div class="contenidor-sobrenosaltres">
-      <h1>Sobre nosaltres</h1>
+      <h2>Sobre nosaltres</h2>
       <p>Benvinguts a <strong>Shakarcia</strong>, un restaurant online on la qualitat i la proximitat són l'essència de la
         nostra cuina. Des del nostre equip, ens comprometem a oferir experiències gastronòmiques úniques,
         elaborades amb els millors ingredients de la nostra terra seleccionats amb cura.</p>
@@ -61,13 +61,6 @@
 
 .sobre-nosaltres h1 {
   margin-bottom: 20px;
-}
-
-.sobre-nosaltres h2 {
-  font-size: 1.8rem;
-  color: #34495e;
-  margin: 20px 0;
-  margin-top: 50px;
 }
 
 .sobre-nosaltres p {

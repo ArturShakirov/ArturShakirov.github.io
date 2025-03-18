@@ -3,6 +3,27 @@
 import footerComponent from './components/footerComponent.vue';
 import headerComponent from './components/headerComponent.vue';
 import { onMounted, onUnmounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+
+const toast = useToast();
+
+function missatgeSuccess(missatge) {
+	toast.add({ severity:'success', summary: missatge.titol, detail: missatge.missatge, life: missatge.duracio || 3000});
+}
+
+function missatgeError(missatge) {
+	toast.add({ severity: 'error', summary: missatge.titol, detail: missatge.missatge, life: missatge.duracio || 3000});
+}
+
+function missatgeInfo(missatge) {
+	toast.add({ severity: 'info', summary: missatge.titol, detail: missatge.missatge, life: missatge.duracio || 3000});
+}
+
+missatgeInfo({
+	titol: 'Missatge de confirmació',
+    missatge: 'Has confirmat la operació amb èxit.',
+});
+
 /*
 onMounted(() => {
 	const cursorShadow = document.getElementById('cursor-shadow');
@@ -28,8 +49,7 @@ onMounted(() => {
 	<main>
 		<Toast />
 		<div id="contingut">
-			<RouterView @missatge-success="missatgeSuccess" @missatge-error="missatgeError"
-				@missatge-info="missatgeInfo" @login-correcte="actualitzarDades" @tancarSessio="tancarSessio"></RouterView>
+			<RouterView></RouterView>
 		</div>
 	</main>
 
@@ -38,6 +58,7 @@ onMounted(() => {
 </template>
 
 <style>
+@import 'primeicons/primeicons.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*MODE DIA I COLORS PREDEFINITS*/
@@ -49,7 +70,7 @@ onMounted(() => {
 	--marro: #6c4423;
 	--beix: #d8c3a5;
 	--negre: #1f1f1f;
-	--blanc: #ffffff;
+	--blanc: #fbfbfb;
 	--header: rgba(250, 250, 250, 0.5);
 	--gris: #C6C6C6;
 	--grisFosc: #DDDDDD;
@@ -59,7 +80,9 @@ onMounted(() => {
 	--font-secundaria: "Inter Tight", sans-serif;
 	--background: rgb(251, 251, 251);
 	--text-primary-color: #1f1f1f;
-	--text-secondary-color: #5e5e5e;
+	--text-secondary-color: #626262;
+	--text-third-color: #c3c3c3;
+	--hover: #808080; 
 	--text-primary-color-inputs: rgba(18, 18, 18, 0.8);
 	--hoverTaules: rgba(0, 0, 0, 0.035);
 	--seleccionat: rgba(0, 0, 0, 0.1);
@@ -84,6 +107,7 @@ html,
 body {
 	height: auto;
 	width: 100%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -93,7 +117,7 @@ body {
 	background-color: var(--background);
 	color: var(--text-secondary-color);
 	font-size: 16.5px;
-	line-height: 1.35;
+	line-height: 1.5;
 	font-weight: 500;
 	min-height: 100vh;
 }
@@ -147,14 +171,22 @@ a {
 	color: var(--text-primary-color);
 	font-family: var(--font-primaria);
 	line-height: 1.1em;
-	letter-spacing: -0.015em;
+	letter-spacing: -0.02em;
 	margin-block-end: 0.3em;
+	transition: 0.2s;
 }
 
 h1 {
-	font-size: 45px;
+	font-weight: 600;
+	font-size: clamp(45px, 4vw + 4vh, 80px);
 	margin-bottom: 20px;
 	transition: 0.2s;
+}
+
+h2 {
+	font-weight: 600;
+    font-size: clamp(30px, 3vw + 2vh, 50px);
+    margin-bottom: 15px;
 }
 
 button:hover,
@@ -206,21 +238,17 @@ select {
 
 button,
 input[type="submit"] {
-	border: 3.5px solid var(--negre);
-	background: linear-gradient(135deg, var(--negre) 50%, var(--blanc) 50%);
-	background-size: 300% 100%;
-	background-position: right;
-	padding: 10px;
-	margin-top: 15px;
+	border: none;
+	padding: 0px 3px;
 	font-weight: 600;
 	color: var(--text-primary-color);
-	transition: all 0.3s ease-in-out;
+	background-color: transparent;
+	border: 2px solid transparent;
 }
 
 button:hover,
 input[type="submit"]:hover {
-	background-position: left;
-	color: var(--blanc);
+	border-bottom: 2px solid var(--negre);
 }
 
 button:disabled,
@@ -284,11 +312,9 @@ hr {
 
 /* Íconos */
 .icona {
-	background-color: var(--grisFosc);
 	padding: 10px;
 	border-radius: 3em;
 	color: var(--negre);
-	margin: 0 5px;
 	cursor: pointer;
 	transition: 0.2s;
 }
@@ -320,7 +346,7 @@ hr {
 }
 
 /* Precios */
-.preu>*::after {
+.precio>*::after {
 	content: "€";
 }
 
@@ -332,18 +358,6 @@ hr {
 .contenidor-botons {
 	display: flex;
 	gap: 8px;
-}
-
-.pi-trash {
-	color: #ff3459;
-	background-color: #ffccd5;
-	cursor: pointer;
-}
-
-.pi-pencil {
-	color: var(--verdFosc);
-	background-color: #b4ecb7;
-	cursor: pointer;
 }
 
 .contingut-dialog {
