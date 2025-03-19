@@ -44,19 +44,42 @@
           </div>
         </div>
       </div>
+      <p>Web dissenyada con Figma y desarrollada con VUE + JavaScript, HTML, vanilla CSS</p>
       <div class="copyrightText">&copy; Artur Shakirov<br>Casi todos los derechos reservados.</div>
     </div>
+    <h1 id="titulo-footer">
+      <span>Artur&nbsp;</span>
+      <span>Shakirov</span>
+    </h1>
   </footer>
 </template>
 
 <style scoped>
+#titulo-footer {
+  font-weight: 600;
+  position: absolute;
+  bottom: 0;
+  color: #303030;
+  letter-spacing: -0.05em;
+  flex-wrap: nowrap;
+  font-size: 17.3vw;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  transform: translateY(3.2vw);
+}
+
 footer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-image: url(/imatges/background-footer.webp);
   background-repeat: no-repeat;
   background-size:cover;
   padding: 35px 0;
+  padding-bottom: 22vw;
+  overflow: hidden;
   z-index: 0;
   bottom: 0;
   width: 100%;

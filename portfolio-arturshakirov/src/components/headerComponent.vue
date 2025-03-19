@@ -1,8 +1,10 @@
 <script setup>
-const emit = defineEmits('scrollContenedor');
+function obrirMenu() {
+  llistaNav.value?.classList.add("visible");
+}
 
-function scrollAContenedor(id) {
-  emit('scrollContenedor', id);
+function tancarMenu() {
+  llistaNav.value?.classList.remove("visible");
 }
 </script>
 
@@ -60,6 +62,19 @@ header {
 
 #logo {
   height: 35px;
+}
+
+#logo:hover {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*ESTILS BARRA DE NAVEGACIÓ*/

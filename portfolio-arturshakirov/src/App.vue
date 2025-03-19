@@ -248,12 +248,13 @@ label {
 	display: block;
 	text-align: left;
 	padding-bottom: 8px;
-	font-size: 17px;
+	font-size: clamp(15px, 2vw + 1.5vh, 20px);
 }
 
 input,
 textarea,
 select {
+	font-size: clamp(15px, 2vw + 1.5vh, 20px);
 	display: block;
 	width: 100%;
 	padding: 7px;
