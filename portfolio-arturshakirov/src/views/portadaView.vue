@@ -1,5 +1,5 @@
 <script setup>
-import sobreNosaltresView from "./sobreNosaltresView.vue";
+import sobreNosaltresView from "./sobreMiView.vue";
 import { ref, onMounted } from "vue";
 
 document.title = 'Artur Shakirov - Portfolio';
@@ -45,21 +45,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="contenidorPortada">
-    <div id="portada">
-      <h2 class="changingText">{{ currentText }}</h2>
+  <div id="portada" class="contenedor">
+    <div id="contenido-portada">
+      <h2 class="changingText titulo-contenedor">{{ currentText }}</h2>
       <h1>Hey, soy <span id="nameAuthor">Artur Shakirov</span>
         <hr>
       </h1>
 
       <div id="lista-btn">
         <button id="btn-contactame">
-          <i class="pi pi-envelope icona"></i>
+          <i class="pi pi-envelope small-icon"></i>
           Contactame
         </button>
 
         <button id="btn-curriculum">
-          <i class="pi pi-file-pdf icona"></i>
+          <i class="pi pi-file-pdf small-icon"></i>
           Currículum V.
         </button>
       </div>
@@ -67,12 +67,6 @@ onMounted(() => {
 
     <div id="contenidorImatgePortada">
     </div>
-  </div>
-
-  <sobreNosaltresView id="sobreNosaltresView" />
-
-  <div id="habilidades">
-    <h2>Habilidades</h2>
   </div>
 </template>
 
@@ -112,19 +106,18 @@ h1 {
   font-size: clamp(50px, 4vw + 3.5vh, 85px);
 }
 
-#contenidorPortada {
+#portada {
   width: 100%;
-  height: 100vh;
-  min-height: min-content;
+  max-height: 70vh;
+  min-height: fit-content;
   display: flex;
-  gap: 25px;
+  gap: 50px;
 }
 
 #contingutPortada {
   display: flex;
   flex-direction: column;
   align-items: start;
-  height: 100vh;
 }
 
 #nameAuthor {
@@ -142,9 +135,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: clamp(200px, 20vw, 400px); /* Tamaño mínimo, relativo y máximo */
-  min-height: clamp(200px, 20vw, 400px); /* Tamaño mínimo, relativo y máximo */
-  max-height: 80vh;
+  min-width: clamp(200px, 10vw, 700px); /* Tamaño mínimo, relativo y máximo */
+  min-height: clamp(200px, 33vw, 700px); /* Tamaño mínimo, relativo y máximo */
+  max-height: 700px;
   background-image: url('/imatges/SVG/imatge-portada.svg');
   background-position: top;
   background-repeat: no-repeat;
@@ -159,7 +152,7 @@ hr {
 
 <style>
 @media (max-width: 600px) {
-  #contenidorPortada {
+  #portada {
     flex-direction: column-reverse;
   }
 
@@ -184,7 +177,7 @@ hr {
     margin: 0;
   }
 
-  #contenidorPortada * {
+  #portada * {
     width: 100%;
   }
 

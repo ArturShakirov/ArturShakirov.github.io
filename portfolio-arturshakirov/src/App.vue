@@ -117,7 +117,7 @@ body {
 	background-color: var(--background);
 	color: var(--text-secondary-color);
 	font-size: 16.5px;
-	line-height: 1.5;
+	line-height: 1.6;
 	font-weight: 500;
 	min-height: 100vh;
 }
@@ -185,8 +185,37 @@ h1 {
 
 h2 {
 	font-weight: 600;
-    font-size: clamp(30px, 3vw + 2vh, 50px);
+    font-size: clamp(35px, 3vw + 2vh, 45px);
     margin-bottom: 15px;
+}
+
+h3 {
+	font-weight: 500;
+    font-size: clamp(25px, 2vw + 1.5vh, 40px);
+    margin-bottom: 10px;
+	color: var(--text-secondary-color);
+}
+
+h4 {
+	font-weight: 500;
+	font-size: clamp(20px, 1.5vw + 1vh, 25px);
+    color: var(--text-primary-color);
+}
+
+p {
+	font-size: clamp(15px, 2vw + 1.5vh, 20px);
+	color: var(--text-secondary-color);
+  	line-height: 1.6;
+	font-weight: 400;
+}
+
+.contenedor {
+	padding-top: 55px;
+}
+
+.titulo-contenedor {
+	font-weight: 600;
+    margin: 15px 0;
 }
 
 button:hover,
@@ -206,7 +235,7 @@ input[type="submit"]:hover {
 }
 
 form {
-	max-width: 600px;
+	width: 100%;
 	margin: 0 auto;
 	display: block;
 }
@@ -258,7 +287,7 @@ input[type="submit"]:disabled {
 }
 
 textarea {
-	min-height: fit-content;
+	min-height: 100px;
 	resize: vertical;
 	border-radius: 5px;
 	min-width: 100%;
@@ -277,9 +306,10 @@ select {
 }
 
 hr {
-	max-width: 300px;
-	margin: 5px 0;
-	border-top: 1px solid var(--gris);
+  width: 50px;
+  margin-bottom: 20px;
+  margin-top: none;
+  border-bottom: 0.5px solid var(--text-secondary-color);
 }
 
 .iconaCarregantDades {
@@ -311,15 +341,22 @@ hr {
 }
 
 /* Íconos */
-.icona {
+.small-icon {
 	padding: 10px;
 	border-radius: 3em;
 	color: var(--negre);
-	cursor: pointer;
 	transition: 0.2s;
 }
 
-.icona:hover {
+.big-icon{
+	padding: 15px;
+    border-radius: 50%;
+    color: var(--negre);
+	font-size: 35px;
+    transition: 0.2s;
+}
+
+.small-icon:hover, .big-icon:hover {
 	filter: contrast(0.7);
 }
 

@@ -59,7 +59,7 @@ header {
 }
 
 #logo {
-  height: 30px;
+  height: 35px;
 }
 
 /*ESTILS BARRA DE NAVEGACIÓ*/
@@ -87,7 +87,6 @@ nav a {
   padding: 5px 12px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
   border: none;
   cursor: pointer;
   transition: 0.2s;
@@ -129,7 +128,7 @@ nav>ul>.menuTancar {
 
 #botoDemanar:hover,
 #botoRegistre:hover {
-  opacity: 0.7;
+  border-radius: 0;
   cursor: pointer;
 }
 
