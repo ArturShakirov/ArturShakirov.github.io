@@ -82,7 +82,7 @@ button {
 
 .changingText {
   display: inline-block;
-  font-size: clamp(20px, 2vw + 1vh, 25px);
+  font-size: clamp(22px, 2vw + 1vh, 26px);
   font-weight: 500;
   color: var(--text-secondary-color);
   margin-block-end: 1rem;

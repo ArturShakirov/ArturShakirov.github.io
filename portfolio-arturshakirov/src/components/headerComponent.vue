@@ -99,9 +99,10 @@ nav a {
     /*var(--color-text)*/
   ;
   background: transparent;
-  padding: 5px 12px;
+  padding: clamp(5px, 1.5vw + 1vh, 15px);
   text-decoration: none;
   font-weight: 500;
+  font-size: clamp(14px, 1.5vw + 1vh, 16px);
   border: none;
   cursor: pointer;
   transition: 0.2s;
@@ -130,7 +131,6 @@ nav>ul>.menuTancar {
 #botoRegistre {
   background-color: var(--negre);
   border: 2px solid var(--text-primary-color);
-  font-size: 14px;
   padding: 3.5px;
   border-radius: 3.5em;
   transition: 0.2s ease-in-out;

@@ -4,6 +4,12 @@ import footerComponent from './components/footerComponent.vue';
 import headerComponent from './components/headerComponent.vue';
 import { onMounted, onUnmounted } from 'vue';
 import { useToast } from 'primevue/usetoast';
+import emailjs from '@emailjs/browser';
+
+// Inicialización de emailjs
+emailjs.init({
+    publicKey: 'GDZX6T3nbvbpuCF9p',
+});
 
 const toast = useToast();
 
@@ -215,7 +221,11 @@ p {
 
 .titulo-contenedor {
 	font-weight: 600;
-    margin: 15px 0;
+    margin: 18px 0;
+}
+
+.contenedor-margin {
+	margin-block-end: 55px;
 }
 
 button:hover,
@@ -256,10 +266,11 @@ textarea,
 select {
 	font-size: clamp(15px, 2vw + 1.5vh, 20px);
 	display: block;
+	border-radius: 5px;
 	width: 100%;
 	padding: 7px;
 	margin-top: 5px;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	border: 1px solid #b6b6b6;
 	background-color: var(--background);
 	color: var(--text-primary-color-inputs);
@@ -290,7 +301,6 @@ input[type="submit"]:disabled {
 textarea {
 	min-height: 100px;
 	resize: vertical;
-	border-radius: 5px;
 	min-width: 100%;
 	max-width: 100%;
 	max-height: 150px;
