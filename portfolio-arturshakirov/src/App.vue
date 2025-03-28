@@ -225,7 +225,7 @@ p {
 }
 
 .contenedor-margin {
-	margin-block-end: 55px;
+	margin-block-end: 60px;
 }
 
 button:hover,
@@ -266,12 +266,12 @@ textarea,
 select {
 	font-size: clamp(15px, 2vw + 1.5vh, 20px);
 	display: block;
-	border-radius: 5px;
 	width: 100%;
 	padding: 7px;
 	margin-top: 5px;
 	margin-bottom: 20px;
-	border: 1px solid #b6b6b6;
+	border: none;
+	border-bottom: 1px solid var(--text-third-color);
 	background-color: var(--background);
 	color: var(--text-primary-color-inputs);
 	font-family: var(--montserrat);
@@ -279,17 +279,20 @@ select {
 
 button,
 input[type="submit"] {
+	width: fit-content;
 	border: none;
-	padding: 0px 3px;
+	padding: 8px 15px;
+	margin-top: 10px;
 	font-weight: 600;
 	color: var(--text-primary-color);
 	background-color: transparent;
 	border: 2px solid transparent;
+	transition: 0.2s ease-in-out;
 }
 
 button:hover,
 input[type="submit"]:hover {
-	border-bottom: 2px solid var(--negre);
+	border: 2px solid var(--text-primary-color);
 }
 
 button:disabled,

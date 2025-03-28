@@ -3,8 +3,8 @@ document.title = "Pol·lítica de cookies"
 </script>
 
 <template>
-  <div class="container">
-    <h1>Política de Cookies</h1>
+  <div class="contenedor-margin">
+    <h1 class="titulo-contenedor">Política de Cookies</h1>
     <p>
       A <strong>Shakarcia</strong> utilitzem cookies i tecnologies similars per millorar l'experiència de l'usuari al nostre lloc web i optimitzar els nostres serveis. En continuar navegant al nostre web, acceptes l'ús d'aquestes tecnologies d'acord amb aquesta <strong>Política de Cookies</strong>.
     </p>
@@ -66,7 +66,7 @@ document.title = "Pol·lítica de cookies"
     </ul>
 
     <footer>
-      &copy; 2025 Shakarcia - Tots els drets reservats.
+      &copy; 2025 Artur Shakirov - Casi todos los derechos reservados.
     </footer>
   </div>
 </template>

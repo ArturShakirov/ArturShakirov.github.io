@@ -151,7 +151,7 @@ hr {
 </style>
 
 <style>
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   #portada {
     flex-direction: column-reverse;
   }
@@ -166,10 +166,11 @@ hr {
   #contenidorImatgePortada {
     display: flex;
     justify-content: center;
+    width: 500px;
   }
 
   #imatgePortada {
-    height: 300px;
+    height: 100%;
   }
 
   main {

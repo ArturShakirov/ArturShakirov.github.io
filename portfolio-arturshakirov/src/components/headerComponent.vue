@@ -1,4 +1,10 @@
 <script setup>
+import { ref } from 'vue';
+
+const llistaNav = ref(null);
+const menuObrir = ref(null);
+const menuTancar = ref(null);
+
 function obrirMenu() {
   llistaNav.value?.classList.add("visible");
 }
@@ -11,7 +17,7 @@ function tancarMenu() {
 <template>
   <header>
     <div id="contenidorHeader">
-      <a href="#app">
+      <a href="/#app">
         <img src="/imatges/SVG/favicon.svg" alt="Logo" id="logo" />
       </a>
 
@@ -21,9 +27,9 @@ function tancarMenu() {
           <div class="menuTancar" ref="menuTancar" @click="tancarMenu">
             <img class="iconaMenu" src="/imatges/SVG/x-solid.svg" alt="Icona tancar menú">
           </div>
-          <li><a href="#habilidades">Habilidades</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="/#habilidades">Habilidades</a></li>
+          <!--<li><a href="#proyectos">Proyectos</a></li>-->
+          <li><a href="/#experiencia">Experiencia</a></li>
           <li id="botoDemanar"><a href="#contacto">Contactame</a></li>
         </ul>
 
@@ -171,19 +177,38 @@ nav>ul>.menuTancar {
     visibility: visible;
   }
 
+  .llistaNav.visible li {
+    display: block;
+  }
+
   nav>ul {
     display: flex;
     flex-direction: column;
     align-items: end;
     gap: 30px;
-    background-color: var(--background);
     visibility: hidden;
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
-    padding: 2em 3em;
+    padding: 1.5em 2.5em;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--blanc);
+  }
+
+  li {
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li a {
+    font-size: clamp(45px, 4vw + 4vh, 80px);
+  }
+
+  #botoRegistre, #botoDemanar {
+    padding: 10px 15px;
   }
 
   nav>ul * {
